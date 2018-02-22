@@ -1,0 +1,89 @@
+﻿<UserControl x:Class="WcfTestClientMvvm.ContractControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:WcfTestClient.ViewModel;assembly=WcfTestClient.ViewModel"
+             xmlns:local="clr-namespace:WcfTestClientMvvm"
+             mc:Ignorable="d" >
+
+    <Grid d:DataContext="{x:Static vm:ServiceDesigneViewModel.Instance}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Border>
+            <Border.Background>
+                <LinearGradientBrush x:Name="GradientStopTwo" EndPoint="0.5,0" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="1" ScaleX="1"/>
+                            <SkewTransform AngleY="0" AngleX="0"/>
+                            <RotateTransform Angle="90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#879FCD" Offset="0"/>
+                    <GradientStop Color="Transparent" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Border.Triggers>
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <PointAnimation Duration="0:0:0.3"
+                                                        Storyboard.TargetName="GradientStopTwo"
+                                                        Storyboard.TargetProperty="(LinearGradientBrush.EndPoint)"
+                                                        From="0.5,0"
+                                                        To="0.5 , -3"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+
+                <EventTrigger RoutedEvent="MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <PointAnimation Duration="0:0:0.3"
+                                                        Storyboard.TargetName="GradientStopTwo"
+                                                        Storyboard.TargetProperty="(LinearGradientBrush.EndPoint)"
+                                                        To="0.5,0"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Border.Triggers>
+            <Border.InputBindings>
+                <MouseBinding MouseAction="LeftClick" 
+                              Command="{Binding ShowOperationListCommand}"/>
+            </Border.InputBindings>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="30"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Style="{StaticResource OperationTextBlock}"
+                   Text="{Binding ServiceNamw}"/>
+
+                <TextBlock Text="{Binding IsOperationListVisable, Converter={local:BoolToSigneConverter}}"
+                       FontSize="{StaticResource FamilySizeSmal}"
+                       FontFamily="{StaticResource FontAwesome}"
+                       Style="{StaticResource OperationTextBlock}"
+                       Grid.Column="1"/>
+
+            </Grid>
+        </Border>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1">
+            <ItemsControl ItemsSource="{Binding Operations}" 
+                          Visibility="{Binding IsOperationListVisable, 
+                                        Converter={local:BoolToVisibilityConverter}}" 
+                          Margin="10 0 0 0">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <local:OperationControl/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+    </Grid>
+</UserControl>

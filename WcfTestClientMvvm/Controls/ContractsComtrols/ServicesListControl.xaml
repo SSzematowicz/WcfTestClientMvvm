@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="WcfTestClientMvvm.ServicesListControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm ="clr-namespace:WcfTestClient.ViewModel;assembly=WcfTestClient.ViewModel"
+             xmlns:local="clr-namespace:WcfTestClientMvvm"
+             mc:Ignorable="d">
+    <Grid d:DataContext="{x:Static vm:ServicesDesigneViewModel.Instance}" 
+          DataContext="{Binding ApplicationViewModel.Services, Source={x:Static local:ViewModelLocator.Instance}, Converter={local:MetadataInfoToServicesViewModelConverter}}"
+          >
+        <Grid.Background>
+            <RadialGradientBrush RadiusX="0.6" RadiusY="0.9">
+                <GradientStop Color="Transparent" Offset="1"/>
+                <GradientStop Color="White"/>
+            </RadialGradientBrush>
+        </Grid.Background>
+        <Border Margin="3 0">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF485B81" Offset="0"/>
+                    <GradientStop Color="#FF212C44" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" x:Name="ServicesList">
+                <ItemsControl ItemsSource="{Binding Services}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <local:ContractControl />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</UserControl>

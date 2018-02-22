@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="WcfTestClientMvvm.HostAddressEntryControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WcfTestClientMvvm"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto"/>
+            
+        </Grid.RowDefinitions>
+
+        <Border Background="#907129">
+            
+            <StackPanel Orientation="Horizontal" 
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Center">
+                
+            <TextBox VerticalAlignment="Center"
+                     TextAlignment="Center"
+                     Style="{StaticResource PlaceHolderText}"
+                     Tag="Host Address"
+                     MinWidth="150"
+                     Text="{Binding HostAddress}"
+                     />
+                
+                <Button Style="{StaticResource HostEntrysButton}"
+                        Width="50"   
+                        local:IsBussyProperty.Value="{Binding LoginIsRuning}"
+                        Command="{Binding LoadCommand}"
+                        Height="40"
+                        >OK</Button>
+            </StackPanel>
+        </Border>
+
+        <Path Stroke="#907129" Fill="#907129"
+              Grid.Row="1"
+              HorizontalAlignment="Center"       
+              Data="M 0,0 L 0,0 L 200,0 L 170,42 L 30,42 "
+              VerticalAlignment="Center">
+        </Path>
+
+        <Button VerticalAlignment="Center"
+                Focusable="False"
+                Command="{Binding ShowEntryControlCommand}"
+                Style="{StaticResource WindowButton}"
+                Content="Enter Address"
+                Grid.Row="1"
+                HorizontalAlignment="Center"/>
+    </Grid>
+</UserControl>

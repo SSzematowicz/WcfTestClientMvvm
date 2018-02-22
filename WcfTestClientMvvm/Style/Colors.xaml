@@ -1,0 +1,40 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:WcfTestClientMvvm">
+
+    <Color x:Key="ForegroundGrey">#a4a4a4</Color>
+    <SolidColorBrush x:Key="ForegroundGreyBrush" Color="{StaticResource ForegroundGrey}"/>
+
+    <RadialGradientBrush x:Key="BackgroundLightingBrush" Center="0.5,1" GradientOrigin="0.5,1.5">
+        <GradientStop Color="#900CE8" Offset="0"/>
+        <GradientStop Color="Transparent" Offset="1"/>
+    </RadialGradientBrush>
+
+    <Color x:Key="BackgroundHostEntrybutton">#385490</Color>
+    <SolidColorBrush x:Key="BackgroundHostEntrybuttonBrush" Color="{StaticResource BackgroundHostEntrybutton}"/>
+
+    <Color x:Key="ForegroundHostEntrybutton">#443921</Color>
+    <SolidColorBrush x:Key="ForegroundHostEntrybuttonBrush" Color="{StaticResource ForegroundHostEntrybutton}"/>
+
+    <Color x:Key="BackgroundHoverHostEntrybutton">#97ADDD</Color>
+    <SolidColorBrush x:Key="BackgroundHoverHostEntrybuttonBrush" Color="{StaticResource BackgroundHoverHostEntrybutton}"/>
+
+    <Color x:Key="BackgroundWhite">#FFFFFF</Color>
+    <SolidColorBrush x:Key="BackgroundWhiteBrush" Color="{StaticResource BackgroundWhite}"/>
+
+    <Color x:Key="PropertyListBackground">#1A2744</Color>
+    <SolidColorBrush x:Key="PropertyListBackgroundBrush" Color="{StaticResource PropertyListBackground}"/>
+
+
+    <Color x:Key="PropertyListHoverBackground">#37435D</Color>
+    <SolidColorBrush x:Key="PropertyListHoverBackgroundBrush" Color="{StaticResource PropertyListHoverBackground}"/>
+
+    <Color x:Key="ContentPageBackground">#637190</Color>
+    <SolidColorBrush x:Key="ContentPageBackgroundBrush" Color="{StaticResource ContentPageBackground}"/>
+
+    <Color x:Key="InvokeButtonBeckground">#1F2E51</Color>
+    <SolidColorBrush x:Key="InvokeButtonBeckgroundBrush" Color="{StaticResource InvokeButtonBeckground}"/>
+
+    <Color x:Key="InvokeButtonHoverBackground">#375390</Color>
+    <SolidColorBrush x:Key="InvokeButtonHoverBackgroundBrush" Color="{StaticResource InvokeButtonHoverBackground}"/>
+</ResourceDictionary>

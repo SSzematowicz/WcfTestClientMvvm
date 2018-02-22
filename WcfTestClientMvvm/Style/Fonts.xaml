@@ -1,0 +1,20 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:WcfTestClientMvvm"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <FontFamily x:Key="FontAwesome">pack://appliction;,,,/Fonts/#FontAwesome</FontFamily>
+
+
+    <system:Double x:Key="FamilySizeSmaler">10</system:Double>
+    <system:Double x:Key="FamilySizeSmal">12</system:Double>
+    <system:Double x:Key="FamilySizeRegular">14</system:Double>
+    <system:Double x:Key="FamilySizeLarge">20</system:Double>
+    <system:Double x:Key="FamilySizeLXarge">24</system:Double>
+    <system:Double x:Key="FamilySizeXXLarge">30</system:Double>
+    
+    <!--Font Awesom icon-->
+    <system:String x:Key="FontAwesomePlusIcon">&#xf067;</system:String>
+    <system:String x:Key="FontAwesomeMinusIcon">&#xf068;</system:String>
+    
+</ResourceDictionary>

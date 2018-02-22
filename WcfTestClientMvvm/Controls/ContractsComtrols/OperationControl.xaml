@@ -1,0 +1,96 @@
+﻿<UserControl x:Class="WcfTestClientMvvm.OperationControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WcfTestClientMvvm"
+             xmlns:vm="clr-namespace:WcfTestClient.ViewModel;assembly=WcfTestClient.ViewModel"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style x:Key="ContentStyle" 
+               TargetType="{x:Type ContentControl}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ContentControl}">
+                        <Grid x:Name="background"
+                              Margin="2"
+                                Background="#FF485B81">
+                            <TextBlock Style="{StaticResource OperationTextBlock}"
+                                       Text="{Binding OperationName}"/>
+                            <Border Opacity="0.5" x:Name="border">
+                                <Border.Background>
+                                    <LinearGradientBrush x:Name="GradientStopTwo" EndPoint="0.5,0" StartPoint="0.5,0">
+                                        <LinearGradientBrush.RelativeTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform ScaleY="1" ScaleX="1"/>
+                                                <SkewTransform AngleY="0" AngleX="0"/>
+                                                <RotateTransform Angle="90"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </LinearGradientBrush.RelativeTransform>
+                                        <GradientStop Color="#879FCD" Offset="0"/>
+                                        <GradientStop Color="Transparent" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                                <Border.InputBindings>
+                                    <MouseBinding MouseAction="LeftClick" Command="{Binding OpenOperationCommand}"/>
+                                </Border.InputBindings>
+
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <EventTrigger RoutedEvent="MouseLeftButtonDown">
+                                <BeginStoryboard >
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.02"
+                                                        Storyboard.TargetName="border"
+                                                        Storyboard.TargetProperty="Opacity"
+                                                         From="0.5"
+                                                        To="0"/>
+
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeftButtonUp">
+                                <BeginStoryboard >
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.02"
+                                                        Storyboard.TargetName="border"
+                                                        Storyboard.TargetProperty="Opacity"
+                                                         From="0"
+                                                        To="0.5"/>
+
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <PointAnimation Duration="0:0:0.2"
+                                                        Storyboard.TargetName="GradientStopTwo"
+                                                        Storyboard.TargetProperty="(LinearGradientBrush.EndPoint)"
+                                                        From="0.5,0"
+                                                        To="0.5 , -3"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <PointAnimation Duration="0:0:0.2"
+                                                        Storyboard.TargetName="GradientStopTwo"
+                                                        Storyboard.TargetProperty="(LinearGradientBrush.EndPoint)"
+                                                        To="0.5,0"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <ContentControl Style="{StaticResource ContentStyle}"
+                    d:DataContext="{x:Static vm:OperationDesigneViewModel.Instance}"/>
+</UserControl>
