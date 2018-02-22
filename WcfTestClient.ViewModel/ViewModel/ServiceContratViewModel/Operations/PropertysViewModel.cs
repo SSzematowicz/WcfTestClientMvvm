@@ -9,6 +9,5 @@ namespace WcfTestClient.ViewModel
     {
         public ObservableCollection<Parameter> PropertiesList { get; set; }
 
-        public string SomProperty { get; set; }
     }
 }
