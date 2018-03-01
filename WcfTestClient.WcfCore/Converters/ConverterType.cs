@@ -5,7 +5,7 @@ namespace WcfTestClient.WcfCore
 {
     public static class ConverterType
     {
-        public static object ConvertValueType(Member parameter)
+        public static object ConvertValueType(TypeWithName parameter)
         {
             if (parameter.BaseType == typeof(Single))
             {
@@ -71,7 +71,7 @@ namespace WcfTestClient.WcfCore
                 return null;
         }
 
-        public static object ConvertType(Member parameter)
+        public static object ConvertType(TypeWithName parameter)
         {
             var ob = Activator.CreateInstance(parameter.BaseType);
             var propertys = ob.GetType().GetProperties();
@@ -79,12 +79,12 @@ namespace WcfTestClient.WcfCore
             {
 
 
-                var valuetype = (Member)(from pa in parameter.Properties
-                                         where ((Member)pa).Name == property.Name
+                var valuetype = (TypeWithName)(from pa in parameter.Properties
+                                         where ((TypeWithName)pa).Name == property.Name
                                          select pa).First();
                 if(valuetype.IsValueTypeOrString)
                 {
-                    property.SetValue(ob, Convert.ChangeType(((Member)valuetype).Value, property.PropertyType), null);
+                    property.SetValue(ob, Convert.ChangeType(((TypeWithName)valuetype).Value, property.PropertyType), null);
                 }
                 else if(valuetype.Name != "ExtensionData")
                 {

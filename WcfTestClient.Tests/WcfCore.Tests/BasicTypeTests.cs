@@ -16,7 +16,7 @@ namespace WcfTestClient.Tests.WcfCore.Tests
         [TestCase(typeof(NotValueType), false)]
         public void IsValueTypeOrString_CheckVeriusType(Type type, bool expected)
         {
-            var basicType = new BasicType { BaseType = type };
+            var basicType = new TypeBase { BaseType = type };
 
             var result = basicType.IsValueTypeOrString;
 
@@ -26,7 +26,7 @@ namespace WcfTestClient.Tests.WcfCore.Tests
         [Test]
         public void HaveProperties_TypeWithProperties_ReturnTrue()
         {
-            var basicType = new BasicType
+            var basicType = new TypeBase
             {
                 BaseType = typeof(NotValueType),
                 Properties = new List<object> { "red", "green", 24 }
@@ -40,7 +40,7 @@ namespace WcfTestClient.Tests.WcfCore.Tests
         [Test]
         public void HaveProperties_TypeWithNullProperties_ReturnFalse()
         {
-            var basicType = new BasicType
+            var basicType = new TypeBase
             {
                 BaseType = typeof(NotValueType),
                 Properties = new List<object> { null, null, null }
@@ -54,7 +54,7 @@ namespace WcfTestClient.Tests.WcfCore.Tests
         [Test]
         public void HaveProperties_TypeWithoutProperties_ReturnFalse()
         {
-            var basicType = new BasicType
+            var basicType = new TypeBase
             {
                 BaseType = typeof(NotValueType)
             };
@@ -70,7 +70,7 @@ namespace WcfTestClient.Tests.WcfCore.Tests
         [TestCase(typeof(NotValueType), default(NotValueType))]
         public void DefaulValue_VeriusType_RetunDefaulValue(Type basetype, object defaulValue)
         {
-            BasicType basic = new BasicType { BaseType = basetype };
+            TypeBase basic = new TypeBase { BaseType = basetype };
 
             object result = basic.DefaulValue;
 

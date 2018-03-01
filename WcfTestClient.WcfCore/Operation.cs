@@ -21,6 +21,6 @@ namespace WcfTestClient.WcfCore
         /// <summary>
         /// Return Type
         /// </summary>
-        public BasicType ReturnType { get; set; }
+        public TypeBase ReturnType { get; set; }
     }
 }

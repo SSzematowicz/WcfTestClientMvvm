@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace WcfTestClient.WcfCore
 {
-    public class BasicType
+    public class TypeBase
     {
         public Type BaseType { get; set; }
 

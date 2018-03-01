@@ -10,6 +10,6 @@ namespace WcfTestClientMvvm
         public DataTemplate PropertyVM { get; set; }
         public DataTemplate TypeVM { get; set; }
 
-        public override DataTemplate SelectTemplate(object item, DependencyObject container) => ((Member)item).IsValueTypeOrString ? PropertyVM : TypeVM;
+        public override DataTemplate SelectTemplate(object item, DependencyObject container) => ((TypeWithName)item).IsValueTypeOrString ? PropertyVM : TypeVM;
     }
 }

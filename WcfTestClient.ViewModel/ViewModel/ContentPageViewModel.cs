@@ -11,7 +11,7 @@ namespace WcfTestClient.ViewModel
 
         public ObservableCollection<Parameter> Parameters { get; set; }
 
-        public BasicType ReturnType { get; set; }
+        public TypeBase ReturnType { get; set; }
 
         public object Instance { get; set; }
 
@@ -43,6 +43,7 @@ namespace WcfTestClient.ViewModel
             var result = methodInfo.Invoke(Instance,
                 System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public, 
                 null, arguments, CultureInfo.CurrentCulture);
+            //ToDoo : Create Reurn type and show it 
         }
     }
 }

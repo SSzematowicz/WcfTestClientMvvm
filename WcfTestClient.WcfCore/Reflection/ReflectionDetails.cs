@@ -28,7 +28,7 @@ namespace WcfTestClient.WcfCore
             }
             //Get and create Return type of the operation
             var returnType = methodInfo.ReturnType;
-            BasicType ReturnType = new BasicType { BaseType = returnType };
+            TypeBase ReturnType = new TypeBase { BaseType = returnType };
             if (!returnType.IsValueType && returnType != typeof(string))
             {
                 ReturnType.Properties.AddRange(GetPropertys(returnType));

@@ -1,6 +1,6 @@
 ﻿namespace WcfTestClient.WcfCore
 {
-    public class Member : BasicType
+    public class TypeWithName : TypeBase
     {
         public string Name { get; set; }
     }

@@ -11,7 +11,7 @@ namespace WcfTestClient.ViewModel
 
         public ObservableCollection<Parameter> Parameters { get; set; }
 
-        public BasicType ReturnType { get; set; }
+        public TypeBase ReturnType { get; set; }
 
         public object Instance { get; set; }
 

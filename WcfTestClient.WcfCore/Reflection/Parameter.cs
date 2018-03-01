@@ -1,6 +1,6 @@
 ﻿namespace WcfTestClient.WcfCore
 {
-    public class Parameter : Member
+    public class Parameter : TypeWithName
     {
 
     }

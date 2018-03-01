@@ -44,10 +44,8 @@
   <ItemGroup>
     <Compile Include="Converters\ConverterType.cs" />
     <Compile Include="Operation.cs" />
-    <Compile Include="Reflection\BasicType.cs" />
     <Compile Include="Interfaces\IMetadataLoader.cs" />
     <Compile Include="Interfaces\IMetadataSetCreator.cs" />
-    <Compile Include="Reflection\Member.cs" />
     <Compile Include="MetadataInfo.cs" />
     <Compile Include="MetadataLoader.cs" />
     <Compile Include="MetadataSetCreator.cs" />
@@ -55,6 +53,8 @@
     <Compile Include="Reflection\Parameter.cs" />
     <Compile Include="Reflection\Property.cs" />
     <Compile Include="Reflection\ReflectionDetails.cs" />
+    <Compile Include="Reflection\TypeBase.cs" />
+    <Compile Include="Reflection\TypeWithName.cs" />
     <Compile Include="ServiceInstance.cs" />
     <Compile Include="ServiceProxyGenerator.cs" />
   </ItemGroup>
